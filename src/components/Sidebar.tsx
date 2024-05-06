@@ -18,7 +18,7 @@ export function Sidebar() {
             className={cn(
               'flex flex-row items-center space-x-2 px-5 py-4 ',
               item.href.split('/')[1] === pathname.split('/')[1]
-                ? 'bg-gray-300'
+                ? 'bg-gradient-to-r from-gray-400 to-transparent rounded-md'
                 : 'bg-none'
             )}
             key={index}
