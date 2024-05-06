@@ -1,4 +1,5 @@
 import { request } from '@/services/utils';
+import { IPayload } from '@/types';
 
 export const getAlbums = (params: { _limit: number }) =>
   request({
@@ -23,6 +24,26 @@ export const getPost = (postId: number) =>
   request({
     url: `/posts/${postId}`,
     method: 'GET',
+  });
+
+export const addPost = (data: IPayload) =>
+  request({
+    url: `/posts`,
+    method: 'POST',
+    data,
+  });
+
+export const updatePost = (data: IPayload) =>
+  request({
+    url: `/posts/${data.id}`,
+    method: 'PUT',
+    data,
+  });
+
+export const deletePost = (id: number) =>
+  request({
+    url: `/posts/${id}`,
+    method: 'DELETE',
   });
 
 export const getPostComments = (params: { postId: number }) =>

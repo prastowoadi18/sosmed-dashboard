@@ -8,7 +8,7 @@ export function Sidebar() {
   const { pathname } = useLocation();
 
   return (
-    <aside className="flex h-full lg:w-[256px] lg:fixed left-0 top-0 px-4 border-r-2 flex-col">
+    <aside className="hidden lg:flex h-full lg:w-[256px] lg:fixed left-0 top-0 px-4 border-r-2 flex-col">
       <div className="flex flex-row items-center p-5 space-x-2">
         <img src={logo} className="mx-auto" />
       </div>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MoreHorizontal } from 'lucide-react';
+import { Edit, Eye, MessageSquare, MoreHorizontal, Trash } from 'lucide-react';
 import { ColumnDef } from '@tanstack/react-table';
 
 import { Posts } from '@/types';
@@ -8,9 +8,12 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
+import DeletePost from '@/components/posts/DialogDelete';
+import EditPost from '@/components/posts/DialogEdit';
 
 export const columns: ColumnDef<Posts>[] = [
   {
@@ -43,23 +46,20 @@ export const columns: ColumnDef<Posts>[] = [
       const posts = row.original;
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="w-8 h-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="w-4 h-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem>
-              <Link to={`/posts/${posts.id}`}>Detail Post</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link to={`/posts/${posts.id}/comments`}>View Comments</Link>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex flex-row items-center space-x-2">
+          <Button variant="secondary" size="iconcm" asChild>
+            <Link to={`/posts/${posts.id}`}>
+              <Eye className="w-3 h-3" />
+            </Link>
+          </Button>
+          <EditPost data={posts} />
+          <Button size="iconcm" asChild>
+            <Link to={`/posts/${posts.id}/comments`}>
+              <MessageSquare className="w-3 h-3" />
+            </Link>
+          </Button>
+          <DeletePost id={posts.id} />
+        </div>
       );
     },
   },

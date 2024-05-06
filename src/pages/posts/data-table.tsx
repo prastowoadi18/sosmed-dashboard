@@ -19,6 +19,8 @@ import {
 import { Button } from '@/components/ui/button';
 import React from 'react';
 import { Input } from '@/components/ui/input';
+import { PlusCircle } from 'lucide-react';
+import AddPost from '@/components/posts/DialogAdd';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -51,7 +53,8 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="border rounded-md">
-      <div className="flex items-center justify-end py-4 pr-3">
+      <div className="flex items-center justify-between px-3 py-4">
+        <AddPost />
         <Input
           placeholder="Filter title..."
           value={(table.getColumn('title')?.getFilterValue() as string) ?? ''}

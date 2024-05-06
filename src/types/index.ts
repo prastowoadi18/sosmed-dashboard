@@ -56,3 +56,10 @@ export interface Company {
   catchPhrase: string;
   bs: string;
 }
+
+export interface IPayload {
+  id?: number;
+  title: string;
+  body: string;
+  userId: number;
+}
