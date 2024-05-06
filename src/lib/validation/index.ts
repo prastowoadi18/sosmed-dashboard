@@ -10,3 +10,13 @@ export const formPostSchema = z.object({
 });
 
 export type FormPostValues = z.infer<typeof formPostSchema>;
+
+export const formCommentSchema = z.object({
+  postId: z.number(),
+  id: z.number().optional(),
+  name: requiredString,
+  email: requiredString,
+  body: requiredString,
+});
+
+export type FormCommentValues = z.infer<typeof formCommentSchema>;

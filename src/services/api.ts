@@ -1,5 +1,5 @@
 import { request } from '@/services/utils';
-import { IPayload } from '@/types';
+import { IPayload, IPayloadComment } from '@/types';
 
 export const getAlbums = (params: { _limit: number }) =>
   request({
@@ -53,9 +53,35 @@ export const getPostComments = (params: { postId: number }) =>
     params: params,
   });
 
+export const addComment = (data: IPayloadComment) =>
+  request({
+    url: `/comments`,
+    method: 'POST',
+    data,
+  });
+
+export const updateComment = (data: IPayloadComment) =>
+  request({
+    url: `/comments/${data.id}`,
+    method: 'PUT',
+    data,
+  });
+
+export const deleteComment = (id: number) =>
+  request({
+    url: `/comments/${id}`,
+    method: 'DELETE',
+  });
+
 export const getAlbumsPhotos = (params: { albumId: number }) =>
   request({
     url: `/photos`,
     method: 'GET',
     params: params,
+  });
+
+export const getPhoto = (id: number) =>
+  request({
+    url: `/photos/${id}`,
+    method: 'GET',
   });

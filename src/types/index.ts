@@ -63,3 +63,11 @@ export interface IPayload {
   body: string;
   userId: number;
 }
+
+export interface IPayloadComment {
+  postId: number;
+  id?: number;
+  name: string;
+  email: string;
+  body: string;
+}

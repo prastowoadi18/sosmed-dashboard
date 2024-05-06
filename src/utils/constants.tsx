@@ -2,6 +2,7 @@ import App from '@/App';
 
 import { AlbumsPage } from '@/pages/albums';
 import { AlbumsDetailPage } from '@/pages/albums/detail';
+import { DetailPhotoPage } from '@/pages/albums/detail/photo';
 import { PostsPage } from '@/pages/posts';
 import { PostsCommentsPage } from '@/pages/posts/comments';
 import { PostPage } from '@/pages/posts/detail';
@@ -37,6 +38,10 @@ export const routes = [
       {
         path: '/albums/:id',
         element: <AlbumsDetailPage />,
+      },
+      {
+        path: '/albums/photo/:id',
+        element: <DetailPhotoPage />,
       },
     ],
   },

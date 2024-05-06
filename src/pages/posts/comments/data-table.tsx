@@ -19,6 +19,7 @@ import {
 import { Button } from '@/components/ui/button';
 import React from 'react';
 import { Input } from '@/components/ui/input';
+import AddComment from '@/components/comments/DialogAdd';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -51,7 +52,8 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="border rounded-md">
-      <div className="flex items-center justify-end py-4 pr-3">
+      <div className="flex items-center justify-between px-3 py-4">
+        <AddComment />
         <Input
           placeholder="Filter name..."
           value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
