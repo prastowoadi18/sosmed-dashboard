@@ -19,7 +19,6 @@ import {
 import { Button } from '@/components/ui/button';
 import React from 'react';
 import { Input } from '@/components/ui/input';
-import { PlusCircle } from 'lucide-react';
 import AddPost from '@/components/posts/DialogAdd';
 
 interface DataTableProps<TData, TValue> {

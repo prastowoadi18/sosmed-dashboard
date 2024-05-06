@@ -1,16 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Edit, Eye, MessageSquare, MoreHorizontal, Trash } from 'lucide-react';
+import { Eye, MessageSquare } from 'lucide-react';
 import { ColumnDef } from '@tanstack/react-table';
 
 import { Posts } from '@/types';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import DeletePost from '@/components/posts/DialogDelete';
 import EditPost from '@/components/posts/DialogEdit';
