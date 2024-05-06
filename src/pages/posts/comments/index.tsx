@@ -1,4 +1,9 @@
 import { useParams } from 'react-router-dom';
+
+import { usePostsComments } from '@/services/queries';
+import { DataTable } from './data-table';
+import { columns } from './columns';
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,15 +13,10 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 
-import { useAlbumsPhotos } from '@/services/queries';
-import { DataTable } from './data-table';
-import { columns } from './columns';
-
-export function AlbumsDetailPage() {
+export function PostsCommentsPage() {
   const { id } = useParams();
-  const albumsPhotosQuery = useAlbumsPhotos({ albumId: parseInt(id!) });
-  const { data } = albumsPhotosQuery;
-
+  const postsCommentsQuery = usePostsComments({ postId: parseInt(id!) });
+  const { data } = postsCommentsQuery;
   if (!data) {
     return null;
   }
@@ -30,16 +30,16 @@ export function AlbumsDetailPage() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/albums">Albums</BreadcrumbLink>
+            <BreadcrumbLink href="/posts">Posts</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Photos</BreadcrumbPage>
+            <BreadcrumbPage>Comments</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
       <h1 className="mt-5 mb-10 text-2xl font-semibold text-gray-600">
-        List Photos from Albums
+        List Comments
       </h1>
       <DataTable columns={columns} data={data ?? []} />
     </div>

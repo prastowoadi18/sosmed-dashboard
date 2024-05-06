@@ -2,7 +2,9 @@ import App from '@/App';
 
 import { AlbumsPage } from '@/pages/albums';
 import { AlbumsDetailPage } from '@/pages/albums/detail';
-import { PostsPage } from '@/pages/Posts';
+import { PostsPage } from '@/pages/posts';
+import { PostsCommentsPage } from '@/pages/posts/comments';
+import { PostPage } from '@/pages/posts/detail';
 import { UsersPage } from '@/pages/users';
 
 import { Album, Home, MessageCircleIcon, Users2 } from 'lucide-react';
@@ -19,6 +21,14 @@ export const routes = [
       {
         path: '/posts',
         element: <PostsPage />,
+      },
+      {
+        path: '/posts/:id',
+        element: <PostPage />,
+      },
+      {
+        path: '/posts/:id/comments',
+        element: <PostsCommentsPage />,
       },
       {
         path: '/albums',

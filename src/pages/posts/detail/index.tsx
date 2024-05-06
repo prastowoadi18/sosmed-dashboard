@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,16 +6,14 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { usePost } from '@/services/queries';
 
-import { useAlbumsPhotos } from '@/services/queries';
-import { DataTable } from './data-table';
-import { columns } from './columns';
+import { useParams } from 'react-router-dom';
 
-export function AlbumsDetailPage() {
+export function PostPage() {
   const { id } = useParams();
-  const albumsPhotosQuery = useAlbumsPhotos({ albumId: parseInt(id!) });
-  const { data } = albumsPhotosQuery;
-
+  const postQuery = usePost(parseInt(id!));
+  const { data } = postQuery;
   if (!data) {
     return null;
   }
@@ -30,18 +27,21 @@ export function AlbumsDetailPage() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/albums">Albums</BreadcrumbLink>
+            <BreadcrumbLink href="/posts">Posts</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Photos</BreadcrumbPage>
+            <BreadcrumbPage>Detail</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <h1 className="mt-5 mb-10 text-2xl font-semibold text-gray-600">
-        List Photos from Albums
-      </h1>
-      <DataTable columns={columns} data={data ?? []} />
+      <div className="mt-5">
+        <h1 className="text-2xl font-semibold text-gray-600 mb-14">
+          Detail Post
+        </h1>
+        <h2 className="mb-2 text-xl font-semibold capitalize">{data.title}</h2>
+        <p className="w-1/2 text-muted-foreground">{data.body}</p>
+      </div>
     </div>
   );
 }

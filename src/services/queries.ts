@@ -1,11 +1,39 @@
 import { useQuery } from '@tanstack/react-query';
-import { getAlbums, getAlbumsPhotos, getUsers } from '@/services/api';
-import { Albums, AlbumsPhotos, Users } from '@/types';
+import {
+  getAlbums,
+  getAlbumsPhotos,
+  getPost,
+  getPostComments,
+  getPosts,
+  getUsers,
+} from '@/services/api';
+import { Albums, AlbumsPhotos, Comments, Posts, Users } from '@/types';
 
 export function useUsers() {
   return useQuery<Users[]>({
     queryKey: ['users'],
     queryFn: () => getUsers(),
+  });
+}
+
+export function usePosts() {
+  return useQuery<Posts[]>({
+    queryKey: ['posts'],
+    queryFn: () => getPosts(),
+  });
+}
+
+export function usePostsComments(params: { postId: number }) {
+  return useQuery<Comments[]>({
+    queryKey: ['comments', params],
+    queryFn: () => getPostComments(params),
+  });
+}
+
+export function usePost(postId: number) {
+  return useQuery<Posts>({
+    queryKey: ['post', postId],
+    queryFn: () => getPost(postId),
   });
 }
 

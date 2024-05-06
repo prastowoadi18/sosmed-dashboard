@@ -10,7 +10,7 @@ export function UsersPage() {
   }
 
   return (
-    <div className="px-5 py-10">
+    <div className="px-5 py-10 pt-20">
       <h1 className="mb-10 text-2xl font-semibold text-gray-600">List Users</h1>
       <DataTable columns={columns} data={data ?? []} />
     </div>

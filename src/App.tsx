@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="flex flex-row h-screen">
       <Sidebar />
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 lg:pl-[256px]">
         <div className="flex flex-row items-center justify-between px-5 py-2 border-b shadow-md">
           <h1 className="font-semibold">{titleHead}</h1>
           <Avatar>

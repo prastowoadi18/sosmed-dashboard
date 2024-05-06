@@ -13,6 +13,25 @@ export const getUsers = () =>
     method: 'GET',
   });
 
+export const getPosts = () =>
+  request({
+    url: `/posts`,
+    method: 'GET',
+  });
+
+export const getPost = (postId: number) =>
+  request({
+    url: `/posts/${postId}`,
+    method: 'GET',
+  });
+
+export const getPostComments = (params: { postId: number }) =>
+  request({
+    url: `/comments`,
+    method: 'GET',
+    params: params,
+  });
+
 export const getAlbumsPhotos = (params: { albumId: number }) =>
   request({
     url: `/photos`,
