@@ -5,7 +5,9 @@ import { menu } from './utils/constants';
 
 function App() {
   const { pathname } = useLocation();
-  const titleHead = menu.find((e) => e.href === pathname)?.title;
+  const titleHead = menu.find(
+    (e) => e.href.split('/')[1] === pathname.split('/')[1]
+  )?.title;
 
   return (
     <div className="flex flex-row h-screen">

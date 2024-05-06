@@ -1,6 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import { getAlbums, getAlbumsPhotos } from '@/services/api';
-import { Albums, AlbumsPhotos } from '@/types';
+import { getAlbums, getAlbumsPhotos, getUsers } from '@/services/api';
+import { Albums, AlbumsPhotos, Users } from '@/types';
+
+export function useUsers() {
+  return useQuery<Users[]>({
+    queryKey: ['users'],
+    queryFn: () => getUsers(),
+  });
+}
 
 export function useAlbums(params: { _limit: number }) {
   return useQuery<Albums[]>({
@@ -11,7 +18,7 @@ export function useAlbums(params: { _limit: number }) {
 
 export function useAlbumsPhotos(params: { albumId: number }) {
   return useQuery<AlbumsPhotos[]>({
-    queryKey: ['albums', params],
+    queryKey: ['albums-photos', params],
     queryFn: () => getAlbumsPhotos(params),
   });
 }

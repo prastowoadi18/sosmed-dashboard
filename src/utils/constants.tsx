@@ -3,7 +3,7 @@ import App from '@/App';
 import { AlbumsPage } from '@/pages/albums';
 import { AlbumsDetailPage } from '@/pages/albums/detail';
 import { PostsPage } from '@/pages/Posts';
-import { UserPage } from '@/pages/User';
+import { UsersPage } from '@/pages/users';
 
 import { Album, Home, MessageCircleIcon, Users2 } from 'lucide-react';
 
@@ -14,7 +14,7 @@ export const routes = [
     children: [
       {
         path: '/users',
-        element: <UserPage />,
+        element: <UsersPage />,
       },
       {
         path: '/posts',

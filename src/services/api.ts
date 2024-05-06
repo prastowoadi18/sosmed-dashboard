@@ -7,6 +7,12 @@ export const getAlbums = (params: { _limit: number }) =>
     params: params,
   });
 
+export const getUsers = () =>
+  request({
+    url: `/users`,
+    method: 'GET',
+  });
+
 export const getAlbumsPhotos = (params: { albumId: number }) =>
   request({
     url: `/photos`,
