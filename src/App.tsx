@@ -3,7 +3,7 @@ import { Sidebar } from './components/Sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar';
 import { menu } from './utils/constants';
 import { MobileNav } from './components/MobileNav';
-import { Dashboard } from './components/dashboard';
+import Dashboard from './components/dashboard';
 
 function App() {
   const { pathname } = useLocation();

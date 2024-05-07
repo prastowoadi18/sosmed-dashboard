@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import {
   getAlbums,
   getAlbumsPhotos,
+  getComments,
   getPhoto,
   getPost,
   getPostComments,
@@ -21,6 +22,13 @@ export function usePosts() {
   return useQuery<Posts[]>({
     queryKey: ['posts'],
     queryFn: () => getPosts(),
+  });
+}
+
+export function useComments() {
+  return useQuery<Comments[]>({
+    queryKey: ['comments'],
+    queryFn: () => getComments(),
   });
 }
 

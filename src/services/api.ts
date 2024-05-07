@@ -46,6 +46,12 @@ export const deletePost = (id: number) =>
     method: 'DELETE',
   });
 
+export const getComments = () =>
+  request({
+    url: `/comments`,
+    method: 'GET',
+  });
+
 export const getPostComments = (params: { postId: number }) =>
   request({
     url: `/comments`,
